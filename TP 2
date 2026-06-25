@@ -1,0 +1,72 @@
+SOLUCIÓN TRABAJO PRÁCTICO 2 - INFORMÁTICA 1
+
+1. Conversión del binario 101001010101
+   - Procedimiento a Octal (grupos de 3 bits): 101|001|010|101
+     101 = 5
+     001 = 1
+     010 = 2
+     101 = 5
+     RESULTADO OCTAL: 5125
+   - Procedimiento a Hexadecimal (grupos de 4 bits): 1010|0101|0101
+     1010 = A
+     0101 = 5
+     0101 = 5
+     RESULTADO HEXADECIMAL: A55
+
+2. Convertir 0xC0FEE hexadecimal a octal
+   - Paso a binario (4 bits por dígito hex):
+     C = 1100
+     0 = 0000
+     F = 1111
+     E = 1110
+     E = 1110
+     Binario completo: 11000000111111101110
+   - Paso a octal (agrupando de a 3 desde la derecha):
+     011|000|000|111|111|101|110
+     011 = 3
+     000 = 0
+     000 = 0
+     111 = 7
+     111 = 7
+     101 = 5
+     110 = 6
+     RESULTADO OCTAL: 3007756
+
+3. Suma signada de 8 bits: p=01110000 (112) y q=01110000 (112)
+   - Operación: 01110000 + 01110000 = 11100000
+   - Análisis de desbordamiento (Overflow): 
+     Sumamos dos positivos y el resultado dio un bit de signo en 1 (negativo). 
+     El rango máximo para 8 bits signados es +127. 
+     Como 112 + 112 = 224, se produce OVERFLOW.
+   - Resultado en Decimal (CA2 de 11100000):
+     Invierto: 00011111 -> Sumo 1: 00100000 (32).
+     RESULTADO BINARIO: 11100000
+     RESULTADO DECIMAL: -32 (con overflow)
+
+4. Resta signada de 8 bits: p=01111000 (120) y q=00001000 (8)
+   - Operación p - q (p + CA2 de q):
+     q = 00001000 -> CA2 = 11111000
+     01111000 (120) + 11111000 (-8) = 1|01110000 (se ignora el acarreo final)
+   - RESULTADO BINARIO: 01110000
+   - RESULTADO DECIMAL: 112
+
+5. Convertir 254,125 de decimal a formato IEEE754
+   - Signo: 0 (positivo)
+   - Parte entera a binario: 254 = 11111110
+   - Parte fraccionaria a binario: 0,125 = 0,001 (1/8)
+   - Binario completo: 11111110,001
+   - Normalización: 1,1111110001 x 2^7
+   - Exponente: 7 + 127 (sesgo) = 134. Binario: 10000110
+   - Mantisa (23 bits): 11111100010000000000000
+   - RESULTADO FINAL: 0 10000110 11111100010000000000000
+
+6. Suma p+r (8 bits signados): p=35 y r=0xAF
+   - p = 35 decimal = 00100011 binario
+   - r = 0xAF = 10101111 binario. En decimal signado (CA2) es -81.
+   - Operación: 35 + (-81) = -46.
+   - Binario: 00100011 + 10101111 = 11010010
+   - Verificación decimal (CA2 de 11010010): Invierto: 00101101 -> Sumo 1: 00101110 (46).
+   - RESULTADO BINARIO: 11010010
+   - RESULTADO DECIMAL: -46
+
+
